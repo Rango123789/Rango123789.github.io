@@ -1,0 +1,52 @@
+
+.slider{
+    position: relative; /*now you can use 'top,bottom,right,left: [amount[ to move the element relative to its NORMAL possition without affect other elements possition*/
+    left: 0;
+    top: 0;
+    width: 100%;
+    margin: auto;
+    overflow: hidden;
+}
+
+.PrevButton{
+    position: absolute;
+    left: 0;
+    top: 50%;
+    transform: translateY(-50%); /*optional just 'width' of element itself*/
+    font-size: 6rem;
+}
+.NextButton{
+    position: absolute;
+    right: 0;
+    top: 50%;
+    transform: translateY(-50%); /*because the point to measure its position top-left, not center-center! */
+    font-size: 6rem;
+}
+
+/*this give display: none by default to its childs, but its childs can easily override as lower tire take precedence!*/
+.slider img{
+    width: 100%;
+    display: none;
+}
+
+/*the setting in lower tire will take precedence? well but above you just do ".slider img" that select down to "img" element already lol, not at .slider tire any more lol, so this won't work:*/
+.DisplaySlide{
+    display: block;
+}
+
+/**but this work: OPTION1 */
+img.DisplaySlide{
+    display: block;
+    animation-name: fade; /*now use the custom defined here*/
+    animation-duration: 2s;
+}
+/*OPTION2*/
+.slider img.DisplaySlide{
+    display: block;
+}
+
+/*define some custom stuff*/
+@keyframes fade {
+    from {opacity: 0.3;}
+    to {opacity: 1;}
+}
