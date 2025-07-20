@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My website</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <div class="slider">
+        <div class="slides">
+            <img class="slide" src="./images/car1.jpg" alt="Image #1">
+            <img class="slide" src="./images/car2.jpg" alt="Image #2">
+            <img class="slide" src="./images/car3.jpg" alt="Image #3">
+        </div>
+        
+        <!-- you may want to move buttons inside the slider, so that they have connection?  yes Bro did do so lol -->
+        <button class="PrevButton" onclick="PrevSlide()"> < </button>
+        <button class="NextButton" onclick="NextSlide()"> > </button>
+    </div>
+
+    
+    <!--this make my button can't access function in .js lol!  
+    <script type="module" src="index.js"></script>-->
+    <script src="index.js"></script>
+</body>
+</html>
