@@ -3,26 +3,512 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>My website</title>
-    <link rel="stylesheet" href="style.css">
+    <title>Phan Minh Hau (Rango) - Game Developer Portfolio</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            background: #f8f9fa;
+        }
+
+        /* Navigation */
+        nav {
+            background: #fff;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 1000;
+        }
+
+        .nav-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 1rem 2rem;
+        }
+
+        .logo {
+            font-size: 1.5rem;
+            font-weight: bold;
+            color: #2c3e50;
+        }
+
+        .nav-links {
+            display: flex;
+            list-style: none;
+            gap: 2rem;
+        }
+
+        .nav-links a {
+            text-decoration: none;
+            color: #555;
+            font-weight: 500;
+            transition: color 0.3s;
+        }
+
+        .nav-links a:hover {
+            color: #3498db;
+        }
+
+        /* Hero Section */
+        .hero {
+            margin-top: 80px;
+            padding: 100px 2rem;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            text-align: center;
+        }
+
+        .hero h1 {
+            font-size: 3rem;
+            margin-bottom: 1rem;
+            animation: fadeInUp 1s ease;
+        }
+
+        .hero h2 {
+            font-size: 1.5rem;
+            font-weight: 300;
+            margin-bottom: 2rem;
+            animation: fadeInUp 1s ease 0.2s backwards;
+        }
+
+        .hero p {
+            font-size: 1.1rem;
+            max-width: 800px;
+            margin: 0 auto 2rem;
+            line-height: 1.8;
+            animation: fadeInUp 1s ease 0.4s backwards;
+        }
+
+        /* Projects Section */
+        .projects {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 80px 2rem;
+        }
+
+        .section-title {
+            text-align: center;
+            font-size: 2.5rem;
+            margin-bottom: 3rem;
+            color: #2c3e50;
+        }
+
+        .projects-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 2rem;
+            margin-bottom: 4rem;
+        }
+
+        .project-card {
+            background: white;
+            border-radius: 12px;
+            overflow: hidden;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.1);
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+
+        .project-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 8px 30px rgba(0,0,0,0.15);
+        }
+
+        .project-image {
+            width: 100%;
+            height: 250px;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 3rem;
+            color: white;
+            font-weight: bold;
+        }
+
+        .video-container {
+            position: relative;
+            width: 100%;
+            padding-bottom: 56.25%; /* 16:9 Aspect Ratio */
+            height: 0;
+            overflow: hidden;
+        }
+
+        .video-container iframe {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            border: 0;
+        }
+
+        .project-content {
+            padding: 2rem;
+        }
+
+        .project-title {
+            font-size: 1.8rem;
+            margin-bottom: 1rem;
+            color: #2c3e50;
+        }
+
+        .project-description {
+            color: #666;
+            margin-bottom: 1.5rem;
+            line-height: 1.8;
+        }
+
+        .project-tech {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.5rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .tech-tag {
+            background: #e8f4f8;
+            color: #3498db;
+            padding: 0.3rem 0.8rem;
+            border-radius: 20px;
+            font-size: 0.85rem;
+            font-weight: 500;
+        }
+
+        .project-links {
+            display: flex;
+            gap: 1rem;
+            flex-wrap: wrap;
+        }
+
+        .btn {
+            padding: 0.7rem 1.5rem;
+            border-radius: 6px;
+            text-decoration: none;
+            font-weight: 500;
+            transition: all 0.3s;
+            display: inline-block;
+        }
+
+        .btn-primary {
+            background: #3498db;
+            color: white;
+        }
+
+        .btn-primary:hover {
+            background: #2980b9;
+        }
+
+        .btn-secondary {
+            background: #ecf0f1;
+            color: #555;
+        }
+
+        .btn-secondary:hover {
+            background: #d5dbdb;
+        }
+
+        /* Skills Section */
+        .skills {
+            background: white;
+            padding: 80px 2rem;
+        }
+
+        .skills-container {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .skills-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+            margin-top: 3rem;
+        }
+
+        .skill-card {
+            padding: 2rem;
+            background: #f8f9fa;
+            border-radius: 12px;
+            text-align: center;
+            transition: transform 0.3s;
+        }
+
+        .skill-card:hover {
+            transform: translateY(-5px);
+        }
+
+        .skill-icon {
+            font-size: 3rem;
+            margin-bottom: 1rem;
+        }
+
+        .skill-name {
+            font-size: 1.2rem;
+            font-weight: 600;
+            color: #2c3e50;
+            margin-bottom: 0.5rem;
+        }
+
+        .skill-level {
+            color: #666;
+        }
+
+        /* Contact Section */
+        .contact {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 80px 2rem;
+            text-align: center;
+        }
+
+        .contact-info {
+            display: flex;
+            justify-content: center;
+            gap: 3rem;
+            margin-top: 3rem;
+            flex-wrap: wrap;
+        }
+
+        .contact-item {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .contact-icon {
+            font-size: 2rem;
+            color: #3498db;
+        }
+
+        .contact-link {
+            color: #555;
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+
+        .contact-link:hover {
+            color: #3498db;
+        }
+
+        /* Footer */
+        footer {
+            background: #2c3e50;
+            color: white;
+            text-align: center;
+            padding: 2rem;
+        }
+
+        /* Animations */
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .hero h1 {
+                font-size: 2rem;
+            }
+
+            .hero h2 {
+                font-size: 1.2rem;
+            }
+
+            .nav-links {
+                gap: 1rem;
+                font-size: 0.9rem;
+            }
+
+            .projects-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .section-title {
+                font-size: 2rem;
+            }
+        }
+    </style>
 </head>
 <body>
-
-    <div class="slider">
-        <div class="slides">
-            <img class="slide" src="./images/car1.jpg" alt="Image #1">
-            <img class="slide" src="./images/car2.jpg" alt="Image #2">
-            <img class="slide" src="./images/car3.jpg" alt="Image #3">
+    <!-- Navigation -->
+    <nav>
+        <div class="nav-container">
+            <div class="logo">Rango</div>
+            <ul class="nav-links">
+                <li><a href="#home">Home</a></li>
+                <li><a href="#projects">Projects</a></li>
+                <li><a href="#skills">Skills</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
         </div>
-        
-        <!-- you may want to move buttons inside the slider, so that they have connection?  yes Bro did do so lol -->
-        <button class="PrevButton" onclick="PrevSlide()"> < </button>
-        <button class="NextButton" onclick="NextSlide()"> > </button>
-    </div>
+    </nav>
 
-    
-    <!--this make my button can't access function in .js lol!  
-    <script type="module" src="index.js"></script>-->
-    <script src="index.js"></script>
+    <!-- Hero Section -->
+    <section id="home" class="hero">
+        <h1>PHAN MINH HAU (RANGO)</h1>
+        <h2>Game Developer</h2>
+        <p>
+            Hi, I'm a passionate Game Developer with expertise in creating immersive gaming experiences. 
+            I specialize in game development using modern engines and technologies, bringing creative ideas to life through code and design.
+            With experience across multiple genres and platforms, I'm dedicated to crafting engaging gameplay that players love.
+        </p>
+    </section>
+
+    <!-- Projects Section -->
+    <section id="projects" class="projects">
+        <h2 class="section-title">My Projects</h2>
+        <div class="projects-grid">
+            <!-- Slash Project -->
+            <div class="project-card">
+                <div class="video-container">
+                    <iframe 
+                        src="https://www.youtube.com/embed/BXr3woOX0_k" 
+                        title="Slash Game Gameplay" 
+                        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
+                        allowfullscreen>
+                    </iframe>
+                </div>
+                <div class="project-content">
+                    <h3 class="project-title">Slash</h3>
+                    <p class="project-description">
+                        An action-packed hack and slash game featuring fluid combat mechanics, combo systems, and intense boss battles. 
+                        Players embark on an epic journey through dynamic environments with responsive controls and satisfying combat.
+                    </p>
+                    <div class="project-tech">
+                        <span class="tech-tag">Action</span>
+                        <span class="tech-tag">Combat System</span>
+                        <span class="tech-tag">3D Graphics</span>
+                        <span class="tech-tag">Unreal Engine</span>
+                    </div>
+                    <div class="project-links">
+                        <a href="https://www.youtube.com/watch?v=BXr3woOX0_k" target="_blank" class="btn btn-primary">Watch on YouTube</a>
+                        <a href="#" class="btn btn-secondary">GitHub</a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Blaster Project -->
+            <div class="project-card">
+                <div class="project-image" style="background: linear-gradient(135deg, #4facfe 0%, #00f2fe 100%);">
+                    🚀
+                </div>
+                <div class="project-content">
+                    <h3 class="project-title">Blaster</h3>
+                    <p class="project-description">
+                        A fast-paced shooter game with strategic gameplay elements. Features include multiple weapon types, 
+                        enemy AI systems, and explosive action sequences. Optimized for smooth performance across platforms.
+                    </p>
+                    <div class="project-tech">
+                        <span class="tech-tag">Shooter</span>
+                        <span class="tech-tag">AI Systems</span>
+                        <span class="tech-tag">Multiplayer</span>
+                        <span class="tech-tag">Unreal Engine</span>
+                    </div>
+                    <div class="project-links">
+                        <a href="#" class="btn btn-primary">View Demo</a>
+                        <a href="#" class="btn btn-secondary">GitHub</a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Aura Project -->
+            <div class="project-card">
+                <div class="project-image" style="background: linear-gradient(135deg, #a8edea 0%, #fed6e3 100%);">
+                    ✨
+                </div>
+                <div class="project-content">
+                    <h3 class="project-title">Aura</h3>
+                    <p class="project-description">
+                        A mystical adventure game featuring atmospheric environments and puzzle-solving elements. 
+                        Players explore enchanting worlds with beautiful visual effects and an immersive storyline.
+                    </p>
+                    <div class="project-tech">
+                        <span class="tech-tag">Adventure</span>
+                        <span class="tech-tag">Puzzle</span>
+                        <span class="tech-tag">Visual FX</span>
+                        <span class="tech-tag">Unreal Engine</span>
+                    </div>
+                    <div class="project-links">
+                        <a href="#" class="btn btn-primary">View Demo</a>
+                        <a href="#" class="btn btn-secondary">GitHub</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Skills Section -->
+    <section id="skills" class="skills">
+        <div class="skills-container">
+            <h2 class="section-title">Skills & Technologies</h2>
+            <div class="skills-grid">
+                <div class="skill-card">
+                    <div class="skill-icon">🎮</div>
+                    <div class="skill-name">Game Development</div>
+                    <div class="skill-level">Unity, Unreal Engine</div>
+                </div>
+                <div class="skill-card">
+                    <div class="skill-icon">💻</div>
+                    <div class="skill-name">Programming</div>
+                    <div class="skill-level">C#, C++, JavaScript</div>
+                </div>
+                <div class="skill-card">
+                    <div class="skill-icon">🎨</div>
+                    <div class="skill-name">Game Design</div>
+                    <div class="skill-level">Level Design, UI/UX</div>
+                </div>
+                <div class="skill-card">
+                    <div class="skill-icon">🌐</div>
+                    <div class="skill-name">Multiplayer</div>
+                    <div class="skill-level">Networking, Server Logic</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="contact">
+        <h2 class="section-title">Get In Touch</h2>
+        <p style="color: #666; margin-bottom: 2rem;">
+            Interested in collaborating or have a project in mind? Feel free to reach out!
+        </p>
+        <div class="contact-info">
+            <div class="contact-item">
+                <div class="contact-icon">📧</div>
+                <a href="mailto:your.email@example.com" class="contact-link">your.email@example.com</a>
+            </div>
+            <div class="contact-item">
+                <div class="contact-icon">💼</div>
+                <a href="https://github.com/Rango123789" class="contact-link" target="_blank">GitHub</a>
+            </div>
+            <div class="contact-item">
+                <div class="contact-icon">🔗</div>
+                <a href="https://linkedin.com/in/yourprofile" class="contact-link" target="_blank">LinkedIn</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <p>&copy; 2025 Phan Minh Hau (Rango). All rights reserved.</p>
+    </footer>
 </body>
 </html>
