@@ -270,6 +270,11 @@
             margin: 0.4rem 0;
         }
 
+        .skill-level-item::before {
+            content: "• ";
+            margin-right: 0.5rem;
+        }
+
         /* Contact Section */
         .contact {
             max-width: 800px;
@@ -474,26 +479,36 @@
                 <div class="skill-card">
                     <div class="skill-icon">🎮</div>
                     <div class="skill-name">Game Development</div>
-                    <div class="skill-level">Unreal Engine</div>
+                    <div class="skill-level">
+                        <span class="skill-level-item">Unreal Engine 4 & 5.</span>
+                        <span class="skill-level-item">Focused primarily on gameplay mechanics and systems.</span>
+                    </div>
                 </div>
                 <div class="skill-card">
                     <div class="skill-icon">💻</div>
                     <div class="skill-name">Programming</div>
                     <div class="skill-level">
-                        <span class="skill-level-item">C++ and Blueprint (used actively every day);</span>
-                        <span class="skill-level-item">JavaScript (used occasionally);</span>
-                        <span class="skill-level-item">HTML, CSS (familiar)</span>
+                        <span class="skill-level-item">C++ and Blueprint (used actively every day).</span>
+                        <span class="skill-level-item">JavaScript (used occasionally).</span>
+                        <span class="skill-level-item">HTML, CSS (familiar).</span>
                     </div>
                 </div>
                 <div class="skill-card">
                     <div class="skill-icon">🎨</div>
                     <div class="skill-name">Game Design</div>
-                    <div class="skill-level">UI/UX, Level Design</div>
+                    <div class="skill-level">
+                        <span class="skill-level-item">UI/UX (experienced with both UMG and CommonUI, working solo or collaborating with artists, making UI elements functional).</span>
+                        <span class="skill-level-item">Level Design (focused on gameplay prototyping and level structure, determining where and how events occur, rather than visual detailing).</span>
+                    </div>
                 </div>
                 <div class="skill-card">
                     <div class="skill-icon">🌐</div>
                     <div class="skill-name">Multiplayer</div>
-                    <div class="skill-level">Networking, Unreal Replication</div>
+                    <div class="skill-level">
+                        <span class="skill-level-item">Unreal Networking and Replication (UDP).</span>
+                        <span class="skill-level-item">REST API.</span>
+                        <span class="skill-level-item">AWS (API Gateway, lambda, DynamoDB, CloudWatch...).</span>
+                    </div>
                 </div>
             </div>
         </div>
