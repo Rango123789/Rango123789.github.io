@@ -64,7 +64,7 @@
         .hero {
             margin-top: 80px;
             padding: 100px 2rem;
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            background: black;
             color: white;
             text-align: center;
         }
@@ -107,7 +107,7 @@
         .projects-grid {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
-            gap: 2rem;
+            gap: 0.5em;
             margin-bottom: 4rem;
         }
 
@@ -117,6 +117,8 @@
             overflow: hidden;
             box-shadow: 0 4px 20px rgba(0,0,0,0.1);
             transition: transform 0.3s, box-shadow 0.3s;
+            display: flex;
+            flex-direction: column;
         }
 
         .project-card:hover {
@@ -126,7 +128,9 @@
 
         .project-image {
             width: 100%;
-            height: 250px;
+            padding-bottom: 56.25%; /* 16:9 Aspect Ratio */
+            height: 0;
+            position: relative;
             background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
             display: flex;
             align-items: center;
@@ -155,6 +159,9 @@
 
         .project-content {
             padding: 2rem;
+            display: flex;
+            flex-direction: column;
+            flex-grow: 1;
         }
 
         .project-title {
@@ -167,6 +174,7 @@
             color: #666;
             margin-bottom: 1.5rem;
             line-height: 1.8;
+            flex-grow: 1;
         }
 
         .project-tech {
@@ -216,6 +224,59 @@
 
         .btn-secondary:hover {
             background: #d5dbdb;
+        }
+
+        /* Others slider styles */
+        .others-slider {
+            position: relative;
+            display: flex;
+            align-items: center;
+            justify-content: flex-start;
+            margin-bottom: 2.5rem;
+        }
+
+        .slider-viewport {
+            overflow: hidden;
+            box-sizing: border-box;
+            width: 100%; /* fill the section width so it aligns with other grids */
+        }
+
+        .slider-track {
+            display: flex;
+            gap: 0.5em;
+            transition: transform 0.35s ease;
+            box-sizing: border-box;
+        }
+
+        .slider-track .project-card {
+            flex: 0 0 calc((100% - 1em) / 3); /* 3 cards per view, account for 2 gaps of 0.5em */
+            box-sizing: border-box;
+        }
+
+        .slider-btn {
+            background: #3498db;
+            color: #fff;
+            border: none;
+            width: 42px;
+            height: 42px;
+            border-radius: 50%;
+            font-size: 1.1rem;
+            cursor: pointer;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            z-index: 5;
+        }
+
+        #othersPrev { left: -22px; }
+        #othersNext { right: -22px; }
+
+        .slider-btn:disabled {
+            opacity: 0.45;
+            cursor: default;
         }
 
         /* Skills Section */
@@ -374,12 +435,12 @@
 
     <!-- Hero Section -->
     <section id="home" class="hero">
-        <h1>PHAN MINH HAU (RANGO)</h1>
-        <h2>Game Developer</h2>
+        <h2>PHAN MINH HAU<br>(RANGO)<br>Game Developer</h2>
         <p>
             Hi, I'm a passionate Game Developer with expertise in creating immersive gaming experiences. 
-            I specialize in game development using modern engines and technologies, bringing creative ideas to life through code and design.
-            With experience across multiple genres and serveral platforms (PCs and Consoles), I'm dedicated to crafting engaging gameplay that players love.
+            I specialize in game development, bringing creative ideas to life through code and design.
+            I've used Unreal Engine as my primary development tool over 4 years (since UE4.27 to the lastest version of UE5), mastering both C++ and Blueprint scripting to build robust gameplay systems and mechanics.
+            With experience across multiple genres (from single to multiplayer game; from close-combat to top-down RPC game) and serveral platforms (focused on PCs and Consoles), I'm dedicated to crafting engaging gameplay that players love.
         </p>
     </section>
 
@@ -400,7 +461,7 @@
                 <div class="project-content">
                     <h3 class="project-title">Slash</h3>
                     <p class="project-description">
-                        An action-packed hack and slash game featuring fluid combat mechanics, combo systems, and intense boss battles. 
+                        An action-packed hack and slash game featuring fluid close-combat mechanics, combo systems, and intense boss battles. </br>
                         Players embark on an epic journey through dynamic environments with responsive controls and satisfying combat.
                     </p>
                     <div class="project-tech">
@@ -411,7 +472,6 @@
                     </div>
                     <div class="project-links">
                         <a href="https://www.youtube.com/watch?v=BXr3woOX0_k" target="_blank" class="btn btn-primary">Watch on YouTube</a>
-                        <a href="#" class="btn btn-secondary">GitHub</a>
                     </div>
                 </div>
             </div>
@@ -419,23 +479,24 @@
             <!-- Blaster Project -->
             <div class="project-card">
                 <div class="project-image" style="background: linear-gradient(135deg, #4facfe 0%, #00f2fe 100%);">
-                    🚀
+                    <span style="position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); text-align: center;">🚀</span>
                 </div>
                 <div class="project-content">
                     <h3 class="project-title">Blaster</h3>
                     <p class="project-description">
-                        A fast-paced shooter game with strategic gameplay elements. Features include multiple weapon types, 
-                        enemy AI systems, and explosive action sequences. Optimized for smooth performance across platforms.
+                        A fast-paced shooter game run on Steam platforms. </br>
+                        Features include multiple weapon types, and explosive action sequences, strategic gameplay elements. </br>
+                        Optimized for smooth multiplayer performance. </br>
+                        Local-prediction and reserver-rewind techniques are implemented to enhance the online experience.</br>
                     </p>
                     <div class="project-tech">
                         <span class="tech-tag">Shooter</span>
-                        <span class="tech-tag">AI Systems</span>
+                        <span class="tech-tag">Steam</span>
                         <span class="tech-tag">Multiplayer</span>
                         <span class="tech-tag">Unreal Engine</span>
                     </div>
                     <div class="project-links">
                         <a href="#" class="btn btn-primary">View Demo</a>
-                        <a href="#" class="btn btn-secondary">GitHub</a>
                     </div>
                 </div>
             </div>
@@ -453,8 +514,11 @@
                 <div class="project-content">
                     <h3 class="project-title">Aura</h3>
                     <p class="project-description">
-                        A mystical adventure game featuring atmospheric environments and puzzle-solving elements. 
-                        Players explore enchanting worlds with beautiful visual effects and an immersive storyline.
+                        A mystical adventure game featuring atmospheric environments and puzzle-solving elements.</br> 
+                        A true RPC game:</br>
+                        - follow standard adventure game mechanics, character progression (where primary attributes influence secondary stats, and the combat outcomes are influenced by both attacker and defender attributes as well as affected by randomness and chances).</br>
+                        - utilize GAS system for the best performance and scalability.</br>
+                        - with save/load system.</br>
                     </p>
                     <div class="project-tech">
                         <span class="tech-tag">Adventure</span>
@@ -464,10 +528,111 @@
                     </div>
                     <div class="project-links">
                         <a href="https://www.youtube.com/watch?v=UrBk3GXITrk" target="_blank" class="btn btn-primary">Watch on YouTube</a>
-                        <a href="#" class="btn btn-secondary">GitHub</a>
                     </div>
                 </div>
             </div>
+        </div>
+    </section>
+
+    <!-- Others Section -->
+    <section id="others" class="projects">
+        <h2 class="section-title">Others</h2>
+        <div class="others-slider">
+            <button id="othersPrev" class="slider-btn" aria-label="Previous">&#10094;</button>
+            <div class="slider-viewport">
+                <div class="slider-track" id="othersTrack">
+                    <!-- SuperMini BP Project -->
+                    <div class="project-card">
+                        <div class="video-container">
+                            <iframe 
+                                src="https://www.youtube.com/embed/-RTEHr26Y8w" 
+                                title="SuperMini BP Project" 
+                                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
+                                allowfullscreen>
+                            </iframe>
+                        </div>
+                        <div class="project-content">
+                            <h3 class="project-title">SuperMini BP Project</h3>
+                            <p class="project-description">
+                                A mini project showcasing blueprint development and game mechanics implementation.
+                            </p>
+                            <div class="project-tech">
+                                <span class="tech-tag">Blueprint</span>
+                                <span class="tech-tag">Unreal Engine</span>
+                            </div>
+                            <div class="project-links">
+                                <a href="https://www.youtube.com/watch?v=-RTEHr26Y8w" target="_blank" class="btn btn-primary">Watch on YouTube</a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Placeholder Project 2 -->
+                    <div class="project-card">
+                        <div class="video-container">
+                            <iframe 
+                                src="https://www.youtube.com/embed/xGGq9RzvqIo" 
+                                title="Project 2" 
+                                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
+                                allowfullscreen>
+                            </iframe>
+                        </div>
+                        <div class="project-content">
+                            <h3 class="project-title">C++ 2D Game Programs</h3>
+                            <p class="project-description">
+                                A collection of 2D game programs developed in C++. Demonstrates game development fundamentals, graphics rendering, and interactive gameplay mechanics.
+                            </p>
+                            <div class="project-tech">
+                                <span class="tech-tag">C++</span>
+                                <span class="tech-tag">2D Games</span>
+                            </div>
+                            <div class="project-links">
+                                <a href="https://www.youtube.com/watch?v=xGGq9RzvqIo" target="_blank" class="btn btn-primary">Watch on YouTube</a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Placeholder Project 3 -->
+                    <div class="project-card">
+                        <div class="project-image" style="background: #f0f0f0; color: #999; font-size: 1.2rem;">
+                            <span style="position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); text-align: center;">Uploading...</span>
+                        </div>
+                        <div class="project-content">
+                            <h3 class="project-title">Game-Jame Projects</h3>
+                            <p class="project-description">
+                                <!--Project description goes here. -->
+                            </p>
+                            <div class="project-tech">
+                                <span class="tech-tag">Game-Jame</span>
+                                <span class="tech-tag">Unreal Engine</span>
+                            </div>
+                            <div class="project-links">
+                                <a href="#" target="_blank" class="btn btn-primary">View Project</a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Placeholder Project 4 -->
+                    <div class="project-card">
+                        <div class="project-image" style="background: #f0f0f0; color: #999; font-size: 1.2rem;">
+                            <span style="position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); text-align: center;">In Production...</span>
+                        </div>
+                        <div class="project-content">
+                            <h3 class="project-title">Working Projects</h3>
+                            <p class="project-description">
+                                <!--Project description goes here. -->
+                            </p>
+                            <div class="project-tech">
+                                <span class="tech-tag">Working Project</span>
+                                <span class="tech-tag">Unreal Engine</span>
+                            </div>
+                            <div class="project-links">
+                                <a href="#" target="_blank" class="btn btn-primary">View Project</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <button id="othersNext" class="slider-btn" aria-label="Next">&#10095;</button>
         </div>
     </section>
 
@@ -481,7 +646,7 @@
                     <div class="skill-name">Game Development</div>
                     <div class="skill-level">
                         <span class="skill-level-item">Unreal Engine 4 & 5.</span>
-                        <span class="skill-level-item">Focused primarily on gameplay mechanics and systems.</span>
+                        <span class="skill-level-item">Specialized in gameplay mechanics and systems.</span>
                     </div>
                 </div>
                 <div class="skill-card">
@@ -523,11 +688,15 @@
         <div class="contact-info">
             <div class="contact-item">
                 <div class="contact-icon">📧</div>
-                <a href="mailto:hauhauhaubauba@gmail.com" class="contact-link">hauhauhaubauba@gmail.com</a>
+                <a class="contact-link">hauhauhaubauba@gmail.com</a> <!--href="mailto:hauhauhaubauba@gmail.com"-->
             </div>
-            <div class="contact-item">
+            <!--<div class="contact-item">
                 <div class="contact-icon">💼</div>
                 <a href="https://github.com/Rango123789" class="contact-link" target="_blank">GitHub</a>
+            </div> -->
+            <div class="contact-item">
+                <div class="contact-icon">ⓕ</div>
+                <a href="https://www.facebook.com/hau.phanminh.9/" class="contact-link" target="_blank">Facebook</a>
             </div>
         </div>
     </section>
@@ -536,5 +705,55 @@
     <footer>
         <p>&copy; 2025 Phan Minh Hau (Rango). All rights reserved.</p>
     </footer>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            const track = document.getElementById('othersTrack');
+            const prev = document.getElementById('othersPrev');
+            const next = document.getElementById('othersNext');
+            const cards = track.querySelectorAll('.project-card');
+            const visible = 3;
+            const gap = 8; // matches CSS gap (0.5em)
+            let index = 0;
+
+            function cardSize() {
+                // compute based on actual card width and CSS gap
+                const card = track.querySelector('.project-card');
+                const cardW = card.getBoundingClientRect().width;
+                const computed = window.getComputedStyle(track);
+                const gapStr = computed.getPropertyValue('gap') || computed.getPropertyValue('column-gap') || '32px';
+                const gapPx = parseFloat(gapStr);
+                return cardW + gapPx;
+            }
+
+            function updateButtons() {
+                prev.disabled = index <= 0;
+                next.disabled = index >= cards.length - visible;
+            }
+
+            function updateTrack() {
+                const shift = index * cardSize();
+                track.style.transform = `translateX(-${shift}px)`;
+            }
+
+            prev.addEventListener('click', function () {
+                if (index > 0) index -= 1;
+                updateTrack();
+                updateButtons();
+            });
+
+            next.addEventListener('click', function () {
+                if (index < cards.length - visible) index += 1;
+                updateTrack();
+                updateButtons();
+            });
+
+            // initialize
+            window.addEventListener('resize', function () {
+                updateTrack();
+            });
+            updateButtons();
+        });
+    </script>
 </body>
 </html>
