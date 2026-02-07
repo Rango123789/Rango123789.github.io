@@ -1,4 +1,7 @@
-<!DOCTYPE html>
+  flex: 1;
+            text-align: center;
+            max-width: 800px;
+            font-size: 1.25rem;<!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
@@ -66,17 +69,42 @@
             padding: 100px 2rem;
             background: black;
             color: white;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 3rem;
+            flex-wrap: wrap;
+        }
+
+        .hero-image {
+            flex: 0 0 300px;
             text-align: center;
         }
 
+        .hero-image img {
+            width: 400px;
+            height: 400px;
+            border-radius: 50%;
+            object-fit: cover;
+            border: 4px solid #3498db;
+            margin-bottom: 1rem;
+        }
+
+        .hero-content {
+            flex: 1;
+            text-align: left;
+            max-width: 800px;
+            font-size: 1.25rem;
+        }
+
         .hero h1 {
-            font-size: 3rem;
+            font-size: 1.25rem;
             margin-bottom: 1rem;
             animation: fadeInUp 1s ease;
         }
 
         .hero h2 {
-            font-size: 1.5rem;
+            font-size: 1.25rem;
             font-weight: 300;
             margin-bottom: 2rem;
             animation: fadeInUp 1s ease 0.2s backwards;
@@ -88,6 +116,33 @@
             margin: 0 auto 2rem;
             line-height: 1.8;
             animation: fadeInUp 1s ease 0.4s backwards;
+        }
+
+        .hero-intro {
+            font-size: 2.5rem;
+            margin-bottom: 1.5rem;
+            line-height: 1.6;
+        }
+
+        .hero-highlights {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+
+        .hero-highlights li {
+            font-size: 1.25rem;
+            line-height: 1.7;
+            margin-bottom: 1rem;
+            padding-left: 2rem;
+            position: relative;
+        }
+
+        .highlight-icon {
+            position: absolute;
+            left: 0;
+            top: 0;
+            font-size: 1.38rem;
         }
 
         /* Projects Section */
@@ -274,6 +329,9 @@
         #othersPrev { left: -22px; }
         #othersNext { right: -22px; }
 
+        #projectsPrev { left: -22px; }
+        #projectsNext { right: -22px; }
+
         .slider-btn:disabled {
             opacity: 0.45;
             cursor: default;
@@ -350,6 +408,18 @@
             gap: 3rem;
             margin-top: 3rem;
             flex-wrap: wrap;
+        }
+
+        .qr-code {
+            margin-top: 2rem;
+            text-align: center;
+        }
+
+        .qr-code img {
+            width: 150px;
+            height: 150px;
+            border: 2px solid #3498db;
+            border-radius: 8px;
         }
 
         .contact-item {
@@ -435,102 +505,141 @@
 
     <!-- Hero Section -->
     <section id="home" class="hero">
-        <h2>PHAN MINH HAU<br>(RANGO)<br>Game Developer</h2>
-        <p>
-            Hi, I'm a passionate Game Developer with expertise in creating immersive gaming experiences. 
-            I specialize in game development, bringing creative ideas to life through code and design.
-            I've used Unreal Engine as my primary development tool over 4 years (since UE4.27 to the lastest version of UE5), mastering both C++ and Blueprint scripting to build robust gameplay systems and mechanics.
-            With experience across multiple genres (from single to multiplayer game; from close-combat to top-down RPC game) and serveral platforms (focused on PCs and Consoles), I'm dedicated to crafting engaging gameplay that players love.
-        </p>
+        <div class="hero-image">
+            <img src="https://scontent.fhan5-7.fna.fbcdn.net/v/t39.30808-6/629811771_26033194563015794_8461713425988557569_n.jpg?stp=dst-jpg_p526x296_tt6&_nc_cat=111&ccb=1-7&_nc_sid=127cfc&_nc_ohc=RDAsSCKgFxYQ7kNvwHCev1j&_nc_oc=AdnwpTw7YSUkSte6S41f1u-qEJRvYB76DHB_aqxM6ZZgm7SxXytimBOPXr_cHcGeB7DNMuuRHCQVXoRAirwi_0li&_nc_zt=23&_nc_ht=scontent.fhan5-7.fna&_nc_gid=tSsYP-s8IvqxrsvQ0mnFzQ&oh=00_Afs3fYbEOQdv0cRPwJGbg11rD-2GN1WYGGYA9feJn1Ce1Q&oe=698CB625" alt="Phan Minh Hau">
+            <h2>PHAN MINH HAU<br>(RANGO)<br>Game Developer</h2>
+        </div>
+        <div class="hero-content">
+            <ul class="hero-highlights">
+                <li><span class="highlight-icon">👋</span> Hi, I'm a passionate Game Developer with expertise in creating immersive gaming experiences.</li>
+                <li><span class="highlight-icon">🎮</span> I specialize in game development, focusing on gameplay mechanics, gameplay systems, debugging, and performance optimization.</li>
+                <li><span class="highlight-icon">🎨</span> I also collaborate with artists frequently in UI/UX and sometimes Level Design to bring creative ideas to life through code and design.</li>
+                <li><span class="highlight-icon">⚙️</span> I've used Unreal Engine as my primary development tool for 4+ years (since UE4.27 to the latest version of UE5), mastering both C++ and Blueprint scripting to build robust gameplay systems and mechanics.</li>
+                <li><span class="highlight-icon">🌐</span> With experience across multiple genres (from single to multiplayer games; from close-combat to top-down RPG games) and several platforms (focused on PCs and Consoles), I'm dedicated to crafting engaging gameplay that players love.</li>
+            </ul>
+        </div>
     </section>
 
     <!-- Projects Section -->
     <section id="projects" class="projects">
         <h2 class="section-title">My Projects</h2>
-        <div class="projects-grid">
-            <!-- Slash Project -->
-            <div class="project-card">
-                <div class="video-container">
-                    <iframe 
-                        src="https://www.youtube.com/embed/BXr3woOX0_k" 
-                        title="Slash Game Gameplay" 
-                        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
-                        allowfullscreen>
-                    </iframe>
-                </div>
-                <div class="project-content">
-                    <h3 class="project-title">Slash</h3>
-                    <p class="project-description">
-                        An action-packed hack and slash game featuring fluid close-combat mechanics, combo systems, and intense boss battles. </br>
-                        Players embark on an epic journey through dynamic environments with responsive controls and satisfying combat.
-                    </p>
-                    <div class="project-tech">
-                        <span class="tech-tag">Action</span>
-                        <span class="tech-tag">Combat System</span>
-                        <span class="tech-tag">3D Graphics</span>
-                        <span class="tech-tag">Unreal Engine</span>
+        <div class="others-slider">
+            <button id="projectsPrev" class="slider-btn" aria-label="Previous">&#10094;</button>
+            <div class="slider-viewport">
+                <div class="slider-track" id="projectsTrack">
+                    <!-- Slash Project -->
+                    <div class="project-card">
+                        <div class="video-container">
+                            <iframe
+                                src="https://www.youtube.com/embed/BXr3woOX0_k"
+                                title="Slash Game Gameplay"
+                                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                                allowfullscreen>
+                            </iframe>
+                        </div>
+                        <div class="project-content">
+                            <h3 class="project-title">Slash</h3>
+                            <p class="project-description">
+                                An action-packed hack and slash game featuring fluid close-combat mechanics, combo systems, and intense boss battles. </br>
+                                Players embark on an epic journey through dynamic environments with responsive controls and satisfying combat.
+                            </p>
+                            <div class="project-tech">
+                                <span class="tech-tag">Action</span>
+                                <span class="tech-tag">Combat System</span>
+                                <span class="tech-tag">3D Graphics</span>
+                                <span class="tech-tag">Unreal Engine</span>
+                            </div>
+                            <div class="project-links">
+                                <a href="https://www.youtube.com/watch?v=BXr3woOX0_k" target="_blank" class="btn btn-primary">Watch on YouTube</a>
+                            </div>
+                        </div>
                     </div>
-                    <div class="project-links">
-                        <a href="https://www.youtube.com/watch?v=BXr3woOX0_k" target="_blank" class="btn btn-primary">Watch on YouTube</a>
-                    </div>
-                </div>
-            </div>
 
-            <!-- Blaster Project -->
-            <div class="project-card">
-                <div class="project-image" style="background: linear-gradient(135deg, #4facfe 0%, #00f2fe 100%);">
-                    <span style="position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); text-align: center;">🚀</span>
-                </div>
-                <div class="project-content">
-                    <h3 class="project-title">Blaster</h3>
-                    <p class="project-description">
-                        A fast-paced shooter game run on Steam platforms. </br>
-                        Features include multiple weapon types, and explosive action sequences, strategic gameplay elements. </br>
-                        Optimized for smooth multiplayer performance. </br>
-                        Local-prediction and reserver-rewind techniques are implemented to enhance the online experience.</br>
-                    </p>
-                    <div class="project-tech">
-                        <span class="tech-tag">Shooter</span>
-                        <span class="tech-tag">Steam</span>
-                        <span class="tech-tag">Multiplayer</span>
-                        <span class="tech-tag">Unreal Engine</span>
+                    <!-- Blaster Project -->
+                    <div class="project-card">
+                        <div class="project-image" style="background: linear-gradient(135deg, #4facfe 0%, #00f2fe 100%);">
+                            <span style="position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); text-align: center;">🚀</span>
+                        </div>
+                        <div class="project-content">
+                            <h3 class="project-title">Blaster</h3>
+                            <p class="project-description">
+                                A fast-paced shooter game run on Steam platforms. </br>
+                                Features include multiple weapon types, and explosive action sequences, strategic gameplay elements. </br>
+                                Optimized for smooth multiplayer performance. </br>
+                                Local-prediction and reserver-rewind techniques are implemented to enhance the online experience.</br>
+                            </p>
+                            <div class="project-tech">
+                                <span class="tech-tag">Shooter</span>
+                                <span class="tech-tag">Steam</span>
+                                <span class="tech-tag">Multiplayer</span>
+                                <span class="tech-tag">Unreal Engine</span>
+                            </div>
+                            <div class="project-links">
+                                <a href="#" class="btn btn-primary">View Demo</a>
+                            </div>
+                        </div>
                     </div>
-                    <div class="project-links">
-                        <a href="#" class="btn btn-primary">View Demo</a>
-                    </div>
-                </div>
-            </div>
 
-            <!-- Aura Project -->
-            <div class="project-card">
-                <div class="video-container">
-                    <iframe 
-                        src="https://www.youtube.com/embed/UrBk3GXITrk" 
-                        title="Aura Game Gameplay" 
-                        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
-                        allowfullscreen>
-                    </iframe>
-                </div>
-                <div class="project-content">
-                    <h3 class="project-title">Aura</h3>
-                    <p class="project-description">
-                        A mystical adventure game featuring atmospheric environments and puzzle-solving elements.</br> 
-                        A true RPC game:</br>
-                        - follow standard adventure game mechanics, character progression (where primary attributes influence secondary stats, and the combat outcomes are influenced by both attacker and defender attributes as well as affected by randomness and chances).</br>
-                        - utilize GAS system for the best performance and scalability.</br>
-                        - with save/load system.</br>
-                    </p>
-                    <div class="project-tech">
-                        <span class="tech-tag">Adventure</span>
-                        <span class="tech-tag">Puzzle</span>
-                        <span class="tech-tag">Visual FX</span>
-                        <span class="tech-tag">Unreal Engine</span>
+                    <!-- Aura Project -->
+                    <div class="project-card">
+                        <div class="video-container">
+                            <iframe
+                                src="https://www.youtube.com/embed/UrBk3GXITrk"
+                                title="Aura Game Gameplay"
+                                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                                allowfullscreen>
+                            </iframe>
+                        </div>
+                        <div class="project-content">
+                            <h3 class="project-title">Aura</h3>
+                            <p class="project-description">
+                                A mystical adventure game featuring atmospheric environments and puzzle-solving elements.</br>
+                                A Top-down RPC game:</br>
+                                - utilizes GAS system for the best performance and scalability.</br>
+                                - is fully replicated with various attack types, abilities, and enemy AI behaviors.</br>
+                                - with save/load system.</br>
+                                - follows standard adventure game mechanics, character progression (where primary attributes influence secondary stats, and the combat outcomes are influenced by both attacker and defender attributes as well as affected by randomness and chances).</br>
+                            </p>
+                            <div class="project-tech">
+                                <span class="tech-tag">Adventure</span>
+                                <span class="tech-tag">Puzzle</span>
+                                <span class="tech-tag">Visual FX</span>
+                                <span class="tech-tag">Unreal Engine</span>
+                            </div>
+                            <div class="project-links">
+                                <a href="https://www.youtube.com/watch?v=UrBk3GXITrk" target="_blank" class="btn btn-primary">Watch on YouTube</a>
+                            </div>
+                        </div>
                     </div>
-                    <div class="project-links">
-                        <a href="https://www.youtube.com/watch?v=UrBk3GXITrk" target="_blank" class="btn btn-primary">Watch on YouTube</a>
+
+                    <!-- Inventory-focused Project -->
+                    <div class="project-card">
+                        <div class="video-container">
+                            <iframe
+                                src="https://www.youtube.com/embed/IbLAhBlY-_0"
+                                title="Inventory-focused Project Gameplay"
+                                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                                allowfullscreen>
+                            </iframe>
+                        </div>
+                        <div class="project-content">
+                            <h3 class="project-title">Inventory-focused Project</h3>
+                            <p class="project-description">
+                                A comprehensive inventory management system for games, featuring spatial organization, item interactions, and efficient storage mechanics.</br>
+                                This project demonstrates advanced inventory handling with intuitive UI and seamless integration into gameplay.
+                            </p>
+                            <div class="project-tech">
+                                <span class="tech-tag">Spatial Inventory</span>
+                                <span class="tech-tag">Unreal Engine</span>
+                            </div>
+                            <div class="project-links">
+                                <a href="https://www.youtube.com/watch?v=IbLAhBlY-_0" target="_blank" class="btn btn-primary">Watch on YouTube</a>
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>
+            <button id="projectsNext" class="slider-btn" aria-label="Next">&#10095;</button>
         </div>
     </section>
 
@@ -699,6 +808,9 @@
                 <a href="https://www.facebook.com/hau.phanminh.9/" class="contact-link" target="_blank">Facebook</a>
             </div>
         </div>
+        <div class="qr-code">
+            <img src="https://api.qrserver.com/v1/create-qr-code/?size=150x150&data=https://rango123789.github.io" alt="QR Code for Portfolio">
+        </div>
     </section>
 
     <!-- Footer -->
@@ -707,10 +819,11 @@
     </footer>
 
     <script>
-        document.addEventListener('DOMContentLoaded', function () {
-            const track = document.getElementById('othersTrack');
-            const prev = document.getElementById('othersPrev');
-            const next = document.getElementById('othersNext');
+        // Function to initialize slider
+        function initSlider(trackId, prevId, nextId) {
+            const track = document.getElementById(trackId);
+            const prev = document.getElementById(prevId);
+            const next = document.getElementById(nextId);
             const cards = track.querySelectorAll('.project-card');
             const visible = 3;
             const gap = 8; // matches CSS gap (0.5em)
@@ -753,6 +866,11 @@
                 updateTrack();
             });
             updateButtons();
+        }
+
+        document.addEventListener('DOMContentLoaded', function () {
+            initSlider('othersTrack', 'othersPrev', 'othersNext');
+            initSlider('projectsTrack', 'projectsPrev', 'projectsNext');
         });
     </script>
 </body>
