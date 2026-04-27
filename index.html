@@ -1,4 +1,4 @@
-  flex: 1;
+in  flex: 1;
             text-align: center;
             max-width: 800px;
             font-size: 1.25rem;<!DOCTYPE html>
@@ -70,10 +70,25 @@
             background: black;
             color: white;
             display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .hero-top {
+            display: flex;
             align-items: center;
             justify-content: center;
             gap: 3rem;
             flex-wrap: wrap;
+            width: 100%;
+            max-width: 1200px;
+        }
+
+        .hero-video {
+            width: 70%;
+            max-width: 1200px;
+            margin-top: 2rem;
         }
 
         .hero-image {
@@ -505,18 +520,30 @@
 
     <!-- Hero Section -->
     <section id="home" class="hero">
-        <div class="hero-image">
+        <div class="hero-top">
+            <div class="hero-image">
 <img src="https://rango123789.github.io/images/avatar.png" alt="Phan Minh Hau">
-            <h2>PHAN MINH HAU<br>(RANGO)<br>Game Developer</h2>
+                <h2>PHAN MINH HAU<br>(RANGO)<br>Game Developer</h2>
+            </div>
+            <div class="hero-content">
+                <ul class="hero-highlights">
+                    <li><span class="highlight-icon">👋</span> Hi, I'm a passionate Game Developer with expertise in creating immersive gaming experiences.</li>
+                    <li><span class="highlight-icon">🎮</span> I specialize in game development, focusing on gameplay mechanics, gameplay systems, debugging, and performance optimization.</li>
+                    <li><span class="highlight-icon">🎨</span> I also collaborate with artists frequently in UI/UX and sometimes in Level Design to bring creative ideas to life through code and design.</li>
+                    <li><span class="highlight-icon">⚙️</span> I've used Unreal Engine as my primary development tool for 4+ years (since UE4.27 to the latest version of UE5), mastering both C++ and Blueprint scripting to build robust gameplay systems and mechanics.</li>
+                    <li><span class="highlight-icon">🌐</span> With experience across multiple genres (from single to multiplayer games; from close-combat to top-down RPG games) and several platforms (focused on PCs and Consoles), I'm dedicated to crafting engaging gameplay that players love.</li>
+                </ul>
+            </div>
         </div>
-        <div class="hero-content">
-            <ul class="hero-highlights">
-                <li><span class="highlight-icon">👋</span> Hi, I'm a passionate Game Developer with expertise in creating immersive gaming experiences.</li>
-                <li><span class="highlight-icon">🎮</span> I specialize in game development, focusing on gameplay mechanics, gameplay systems, debugging, and performance optimization.</li>
-                <li><span class="highlight-icon">🎨</span> I also collaborate with artists frequently in UI/UX and sometimes in Level Design to bring creative ideas to life through code and design.</li>
-                <li><span class="highlight-icon">⚙️</span> I've used Unreal Engine as my primary development tool for 4+ years (since UE4.27 to the latest version of UE5), mastering both C++ and Blueprint scripting to build robust gameplay systems and mechanics.</li>
-                <li><span class="highlight-icon">🌐</span> With experience across multiple genres (from single to multiplayer games; from close-combat to top-down RPG games) and several platforms (focused on PCs and Consoles), I'm dedicated to crafting engaging gameplay that players love.</li>
-            </ul>
+        <div class="hero-video">
+            <div class="video-container">
+                <iframe
+                    src="https://www.youtube.com/embed/AE7O5zYmKqI"
+                    title="Introduction Video"
+                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                    allowfullscreen>
+                </iframe>
+            </div>
         </div>
     </section>
 
